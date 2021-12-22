@@ -28,7 +28,7 @@
                         <img src="{{Auth::user()->avatar}}" class="user-photo" alt="">
                         <ul class="dropdown-menu" area-labelledby="dropdownMenuLink" style="right:0; left:auto">
                             <li>
-                                <a href="#" class="dropdown-item">My Dashboard</a>
+                                <a href="{{route('dashboard')}}" class="dropdown-item">My Dashboard</a>
                             </li>
 
                             <li>
