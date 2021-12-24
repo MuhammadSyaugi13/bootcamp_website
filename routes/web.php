@@ -25,6 +25,7 @@ Route::get('/login', function () {
 })->name('login');
 
 
+Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
 
 Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
 Route::get('auth/google/callback', [UserController::class, 'handleProviderCallBack'])->name('user.google.callback');
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function ()
     
     // route dashboard
     Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('dashboard/checkout/invoice/{checkout}', [CheckoutController::class, 'invoice'])->name('user.checkout.invoice');
 });
 
 // Route::get('/dashboard', function () {

@@ -12,6 +12,15 @@ class Checkout extends Model
     use HasFactory, softDeletes;
     protected $guarded = ['id', 'created_at','deleted_at', 'updated_at'];
 
+
+    // relasi ke tabel user
+    public function User(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
+    // relasi ke tabel camp
     public function Camp() : BelongsTo
     {
         return $this->belongsTo(Camp::class);
