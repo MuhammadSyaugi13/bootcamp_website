@@ -18,7 +18,6 @@ use App\Http\Controllers\Admin\CheckoutController as AdminCheckout;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -32,6 +31,11 @@ Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
 
 Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
 Route::get('auth/google/callback', [UserController::class, 'handleProviderCallBack'])->name('user.google.callback');
+
+// middleware
+Route::get('payment/success', [CheckoutController::class, 'midtransCallback']);
+Route::post('payment/success', [CheckoutController::class, 'midtransCallback']);
+
 
 Route::middleware('auth')->group(function ()
 {
