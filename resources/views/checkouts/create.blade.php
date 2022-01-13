@@ -49,6 +49,13 @@
                                     @endif
                                 </div> 
                                 <div class="mb-4">
+                                    <label class="form-label">Occupation</label>
+                                    <input name="occupation" type="text" required class="form-control {{$errors->has('occupation') ? 'is-invalid' : ''}}" aria-describedby="emailHelp" value="{{old('occupation') ?: Auth::user()->occupation}}">
+                                    @if ($errors->has('occupation'))
+                                        <p class="text-danger">{{$errors->first('occupation')}}</p>
+                                    @endif
+                                </div>
+                                <div class="mb-4">
                                     <label class="form-label">Phone</label>
                                     <input name="phone" type="text" required class="form-control {{$errors->has('phone') ? 'is-invalid' : ''}}" aria-describedby="emailHelp" value="{{old('phone') ?: Auth::user()->phone}}">
                                     @if ($errors->has('phone'))
